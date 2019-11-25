@@ -12,7 +12,8 @@ public class Task {
     private long id;
     private String description;
 
-    protected Task() { }
+    protected Task() {
+    }
 
     public Task(String description) {
         this.description = description;

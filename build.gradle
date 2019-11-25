@@ -1,32 +1,25 @@
-buildscript {
-	ext {
-		springBootVersion = '2.0.3.RELEASE'
-	}
-	repositories {
-		mavenCentral()
-	}
-	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-	}
-}
+plugins {
+    id 'org.springframework.boot' version '2.2.1.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE' // same as Maven's <dependencyManagement> tags
+    // version, scope, exclusions can be declared in parent POM
+    id 'java'
+    id 'com.github.ben-manes.versions' version '0.27.0' // allows to run ./gradlew dependencyUpdates
 
-apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin: 'org.springframework.boot'
-apply plugin: 'io.spring.dependency-management'
+}
 
 group = 'com.auth0.samples.authapi'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
-
 dependencies {
-	compile('org.springframework.boot:spring-boot-starter-data-jpa')
-	compile('org.springframework.boot:spring-boot-starter-web')
-	testCompile('org.springframework.boot:spring-boot-starter-test')
-	compile("org.hsqldb:hsqldb")
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    compile('org.springframework.boot:spring-boot-starter-web')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    compile("org.hsqldb:hsqldb")
+    compile("org.springframework.boot:spring-boot-starter-security")
+    compile("com.auth0:java-jwt:3.8.3")
 }
